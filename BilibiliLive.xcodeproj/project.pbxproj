@@ -46,6 +46,7 @@
 		49F918722931E927001D3EC3 /* AvTransportScpd.xml in Resources */ = {isa = PBXBuildFile; fileRef = 49F918712931E927001D3EC3 /* AvTransportScpd.xml */; };
 		49FB8EC0291F4C520045D5DE /* VMaskProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB8EBF291F4C520045D5DE /* VMaskProvider.swift */; };
 		49FB8EE929208EBE0045D5DE /* SidxParseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB8EE829208EBE0045D5DE /* SidxParseUtil.swift */; };
+		5FC1A7EB2A2C4DCC002926AD /* WbiSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1A7EA2A2C4DCC002926AD /* WbiSign.swift */; };
 		AE2B41552912706700BF2B0B /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2B41542912706700BF2B0B /* SearchResultViewController.swift */; };
 		AE2B41572914C02000BF2B0B /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2B41562914C02000BF2B0B /* Int.swift */; };
 		AE4889B228FE55DA00E8C5CD /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4889B128FE55DA00E8C5CD /* FavoriteViewController.swift */; };
@@ -138,6 +139,7 @@
 		49F918712931E927001D3EC3 /* AvTransportScpd.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AvTransportScpd.xml; sourceTree = "<group>"; };
 		49FB8EBF291F4C520045D5DE /* VMaskProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMaskProvider.swift; sourceTree = "<group>"; };
 		49FB8EE829208EBE0045D5DE /* SidxParseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidxParseUtil.swift; sourceTree = "<group>"; };
+		5FC1A7EA2A2C4DCC002926AD /* WbiSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WbiSign.swift; sourceTree = "<group>"; };
 		AE2B41542912706700BF2B0B /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		AE2B41562914C02000BF2B0B /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		AE4889B128FE55DA00E8C5CD /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				49D39F27263AD40000F14497 /* WebRequest.swift */,
 				F9D382B326359EF90070508F /* ApiRequest.swift */,
 				F927ED8F2610A5E900EAB8E3 /* CookieManager.swift */,
+				5FC1A7EA2A2C4DCC002926AD /* WbiSign.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				490EC3E7290CC8F8001E00B6 /* RankingViewController.swift in Sources */,
 				F927ED732610395300EAB8E3 /* DanmakuCell.swift in Sources */,
 				49389D8C28B0A84500B9DAFD /* PersonalViewController.swift in Sources */,
+				5FC1A7EB2A2C4DCC002926AD /* WbiSign.swift in Sources */,
 				F927ED772610395300EAB8E3 /* DanmakuQueuePool.swift in Sources */,
 				49A441CD293F6DFD0007606C /* FollowUpsViewController.swift in Sources */,
 				AEA6AB1928FFF3DD007CE72E /* Settings.swift in Sources */,
@@ -761,8 +765,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MEWHFZ92DY;
+				DEVELOPMENT_TEAM = 8P7S5K5926;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BilibiliLive/Vendor",
@@ -777,8 +782,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BilibiliLive/Vendor",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.etan.tv.BilibiliLive;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lwen.bilibili;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BilibiliLive/Supporting Files/BilibiliLive-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -794,7 +800,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MEWHFZ92DY;
+				DEVELOPMENT_TEAM = 8P7S5K5926;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BilibiliLive/Vendor",
@@ -809,7 +815,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BilibiliLive/Vendor",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.etan.tv.BilibiliLive;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lwen.bilibili;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BilibiliLive/Supporting Files/BilibiliLive-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

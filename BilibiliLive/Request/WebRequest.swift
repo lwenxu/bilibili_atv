@@ -27,7 +27,7 @@ enum WebRequest {
         static let fav = "https://api.bilibili.com/x/v3/fav/resource/list"
         static let favList = "https://api.bilibili.com/x/v3/fav/folder/created/list-all"
         static let reportHistory = "https://api.bilibili.com/x/v2/history/report"
-        static let upSpace = "https://api.bilibili.com/x/space/arc/search"
+        static let upSpace = "https://api.bilibili.com/x/space/wbi/arc/search"
         static let like = "https://api.bilibili.com/x/web-interface/archive/like"
         static let likeStatus = "https://api.bilibili.com/x/web-interface/archive/has/like"
         static let coin = "https://api.bilibili.com/x/web-interface/coin/add"
@@ -161,6 +161,7 @@ enum WebRequest {
                                       dataObj: String = "data") async throws -> T
     {
         return try await withCheckedThrowingContinuation { configure in
+            print("method = \(method) url = \(url) param = \(parameters) headers = \(headers) dataObj = \(dataObj)")
             request(method: method, url: url, parameters: parameters, headers: headers, decoder: decoder, dataObj: dataObj, noCookie: noCookie) {
                 (res: Result<T, RequestError>) in
                 switch res {
@@ -238,7 +239,15 @@ extension WebRequest {
     }
 
     static func requestUpSpaceVideo(mid: Int, page: Int, pageSize: Int = 50) async throws -> [UpSpaceReq.List.VListData] {
-        let resp: UpSpaceReq = try await request(url: EndPoint.upSpace, parameters: ["mid": mid, "pn": page, "ps": pageSize])
+        print("requestUpSpaceVideo....")
+//        let resp: UpSpaceReq = try await request(url: EndPoint.upSpace, parameters: ["mid": mid, "pn": page, "ps": pageSize])
+//        return resp.list.vlist
+        return try await requestUpSpaceVideoNew(mid: mid, page: page)
+    }
+
+    static func requestUpSpaceVideoNew(mid: Int, page: Int, pageSize: Int = 50) async throws -> [UpSpaceReq.List.VListData] {
+        let rs = await doQuery(params: ["mid": String(mid), "pn": String(page), "ps": String(pageSize)])
+        let resp: UpSpaceReq = try await request(url: EndPoint.upSpace, parameters: rs)
         return resp.list.vlist
     }
 
@@ -594,6 +603,14 @@ struct UpSpaceReq: Codable, Hashable {
 
             var cid: Int { return 0 }
         }
+    }
+}
+
+struct WbiImg: Codable, Hashable {
+    let wbi_img: WbiImgInfo
+    struct WbiImgInfo: Codable, Hashable {
+        let img_url: String
+        let sub_url: String
     }
 }
 

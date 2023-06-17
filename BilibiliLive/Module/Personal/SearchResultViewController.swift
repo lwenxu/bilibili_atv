@@ -39,33 +39,33 @@ class SearchResultViewController: UIViewController {
                 guard let self = self else { return }
                 WebRequest.requestSearchResult(key: key) { [weak self] searchResult in
                     guard let self = self else { return }
-                    currentSnapshot.deleteAllItems()
+                    self.currentSnapshot.deleteAllItems()
 
                     let defaultHeight = NSCollectionLayoutDimension.fractionalWidth(Settings.displayStyle == .large ? 0.26 : 0.2)
                     for section in searchResult.result {
                         switch section {
                         case let .video(data):
                             let list = SearchList(title: "视频", height: defaultHeight, scrollingBehavior: .continuous)
-                            currentSnapshot.appendSections([list])
-                            currentSnapshot.appendItems(data, toSection: list)
+                            self.currentSnapshot.appendSections([list])
+                            self.currentSnapshot.appendItems(data, toSection: list)
                         case let .bangumi(data):
                             let list = SearchList(title: "番剧", height: defaultHeight, scrollingBehavior: .continuous)
-                            currentSnapshot.appendSections([list])
-                            currentSnapshot.appendItems(data, toSection: list)
+                            self.currentSnapshot.appendSections([list])
+                            self.currentSnapshot.appendItems(data, toSection: list)
                         case let .movie(data):
                             let list = SearchList(title: "影视", height: defaultHeight, scrollingBehavior: .none)
-                            currentSnapshot.appendSections([list])
-                            currentSnapshot.appendItems(data, toSection: list)
+                            self.currentSnapshot.appendSections([list])
+                            self.currentSnapshot.appendItems(data, toSection: list)
                         case let .user(data):
                             let list = SearchList(title: "用户", height: .estimated(140), scrollingBehavior: .continuous)
-                            currentSnapshot.appendSections([list])
-                            currentSnapshot.appendItems(data, toSection: list)
+                            self.currentSnapshot.appendSections([list])
+                            self.currentSnapshot.appendItems(data, toSection: list)
                         case .none:
                             break
                         }
                     }
 
-                    dataSource.apply(currentSnapshot)
+                    self.dataSource.apply(self.currentSnapshot)
                 }
             }
     }
