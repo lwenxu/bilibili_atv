@@ -216,7 +216,7 @@ class VideoPlayerViewController: CommonPlayerViewController {
 
 extension VideoPlayerViewController {
     func fetchVideoData() async {
-        assert(playInfo.isCidVaild)
+        // assert(playInfo.isCidVaild)
         let aid = playInfo.aid
         let cid = playInfo.cid!
         let info = try? await WebRequest.requestPlayerInfo(aid: aid, cid: cid)
